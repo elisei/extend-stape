@@ -1,0 +1,33 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Stape\Gtm\ViewModel\Category">
+        <plugin name="add_custom_item_data" type="O2TI\ExtendedStape\Plugin\Stape\ViewModel\CategoryPlugin" sortOrder="1" />
+    </type>
+
+    <type name="Stape\Gtm\ViewModel\Cart">
+        <plugin name="add_custom_item_data" type="O2TI\ExtendedStape\Plugin\Stape\ViewModel\CartPlugin" sortOrder="1" />
+    </type>
+
+    <type name="Stape\Gtm\ViewModel\Checkout">
+        <plugin name="add_custom_item_data" type="O2TI\ExtendedStape\Plugin\Stape\ViewModel\CheckoutPlugin" sortOrder="1" />
+    </type>
+
+    <type name="Stape\Gtm\ViewModel\Product">
+        <plugin name="add_custom_item_data" type="O2TI\ExtendedStape\Plugin\Stape\ViewModel\ProductPlugin" sortOrder="1" />
+    </type>
+
+    <type name="Stape\Gtm\ViewModel\Success">
+        <plugin name="add_custom_item_data" type="O2TI\ExtendedStape\Plugin\Stape\ViewModel\SuccessPlugin" sortOrder="1" />
+    </type>
+
+    <preference for="Magento\Checkout\CustomerData\DefaultItem"
+            type="O2TI\ExtendedStape\Plugin\Magento\Checkout\CustomerData\DefaultItemPlugin"/>
+
+    <type name="O2TI\ExtendedStape\Plugin\Magento\Checkout\CustomerData\DefaultItemPlugin">
+        <arguments>
+            <argument name="attributeRepository" xsi:type="object">Magento\Catalog\Api\ProductAttributeRepositoryInterface</argument>
+        </arguments>
+    </type>
+
+    
+</config>
